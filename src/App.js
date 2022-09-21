@@ -1,5 +1,9 @@
 import { useState } from "react";
 import "./App.css";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,24 +16,28 @@ function App() {
   };
 
   const decre = () => {
-    if(count > 0){
+    if (count > 0) {
       setCount(count - 1);
-    }else{
-      alert("You reach the limit!")
+    } else {
+      alert("You reach the limit!");
     }
-   
   };
   return (
     <div className="main_div">
       <div className="center_div">
         <h1 onChange={handleChange}>{count}</h1>
         <div className="btn_div">
-          <button className="increment" onClick={incre}>
-            Increment
-          </button>
-          <button className="decrement" onClick={decre}>
-            Decrement
-          </button>
+          <Tooltip title="Increment">
+            <Button variant="contained" color="success" onClick={incre}>
+              <AddIcon></AddIcon>
+            </Button>
+          </Tooltip>
+
+          <Tooltip title="Decrement">
+            <Button variant="contained" color="error" onClick={decre}>
+              <RemoveIcon></RemoveIcon>
+            </Button>
+          </Tooltip>
         </div>
       </div>
     </div>
