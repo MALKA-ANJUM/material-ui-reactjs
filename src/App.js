@@ -4,6 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
+import Clock from "react-digital-clock";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,10 @@ function App() {
   return (
     <div className="main_div">
       <div className="center_div">
+        <Button variant="contained" color="primary">
+          <Clock />
+        </Button>
+        <br />
         <h1 onChange={handleChange}>{count}</h1>
         <div className="btn_div">
           <Tooltip title="Increment">
